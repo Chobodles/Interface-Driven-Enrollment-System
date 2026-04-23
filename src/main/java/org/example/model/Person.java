@@ -1,11 +1,18 @@
 package org.example.model;
 
 public abstract class Person {
+    private int index;
     private String id;
     private String name;
 
-    public String getID() { return id; };
-    public void setID(String ID){
+    public int getIndex() {
+        return index;
+    }
+    public void setIndex(int index) {
+        this.index = index;
+    }
+    public String getId() { return id; };
+    public void setId(String ID){
         this.id = ID;
     };
     public String getName(){
@@ -19,7 +26,8 @@ public abstract class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "ID='" + id + '\'' +
+                "index=" + index +
+                ", id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 '}';
     }
