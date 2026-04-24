@@ -7,12 +7,22 @@ public class Department {
     private String id;
     private String departmentName;
     private List<Instructor> instructorList;
+    private List<Program> programList;
 
-    public Department(int departmentIndex,String id, String departmentName, List<Instructor> instructorList){
+    public Department(int departmentIndex,String id, String departmentName, List<Instructor> instructorList, List<Program> programList){
         this.departmentIndex = departmentIndex;
         this.id = id;
         this.departmentName = departmentName;
         this.instructorList = instructorList;
+        this.programList = programList;
+    }
+
+    public List<Program> getProgramList() {
+        return programList;
+    }
+
+    public void setProgramList(List<Program> programList) {
+        this.programList = programList;
     }
 
     public int getDepartmentIndex() {
@@ -54,6 +64,7 @@ public class Department {
                 ", id='" + id + '\'' +
                 ", departmentName='" + departmentName + '\'' +
                 ", instructorList=" + instructorList +
+                ", programList=" + programList +
                 '}';
     }
 }
