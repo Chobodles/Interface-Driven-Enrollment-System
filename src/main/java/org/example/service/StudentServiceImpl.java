@@ -37,9 +37,9 @@ public class StudentServiceImpl implements IStudentService{
         }
     }
 
-    public void removeStudent(Student student){
+    public void removeStudent(int index){
         for (int i = 0; i < studentList.size(); i++){
-            if(studentList.get(i).getId().equals(student.getId())){
+            if(studentList.get(i).getIndex() == index){
                 studentList.remove(i);
                 break;
             }
