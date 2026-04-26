@@ -4,14 +4,14 @@ import java.util.List;
 
 public class Department {
     private int departmentIndex;
-    private String id;
+    private String departmentId;
     private String departmentName;
     private List<Instructor> instructorList;
     private List<Program> programList;
 
-    public Department(int departmentIndex,String id, String departmentName, List<Instructor> instructorList, List<Program> programList){
+    public Department(int departmentIndex,String departmentId, String departmentName, List<Instructor> instructorList, List<Program> programList){
         this.departmentIndex = departmentIndex;
-        this.id = id;
+        this.departmentId = departmentId;
         this.departmentName = departmentName;
         this.instructorList = instructorList;
         this.programList = programList;
@@ -42,11 +42,11 @@ public class Department {
     }
 
     public String getId() {
-        return id;
+        return departmentId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(String departmentId) {
+        this.departmentId = departmentId;
     }
 
     public List<Instructor> getInstructorList() {
@@ -57,11 +57,16 @@ public class Department {
         this.instructorList = instructorList;
     }
 
+    public List<Program> display(){
+        System.out.printf("Index: [%d] | Department ID: %s | Department Name: %s %n", departmentIndex, departmentId, departmentName);
+        return programList.stream().toList();
+    }
+
     @Override
     public String toString() {
         return "Department{" +
                 "departmentIndex=" + departmentIndex +
-                ", id='" + id + '\'' +
+                ", departmentId='" + departmentId + '\'' +
                 ", departmentName='" + departmentName + '\'' +
                 ", instructorList=" + instructorList +
                 ", programList=" + programList +

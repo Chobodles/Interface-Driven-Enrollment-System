@@ -21,7 +21,7 @@ public class CourseServiceImpl implements ICourseService{
 
     public void updateCourse(int index){
         for (int i = 0; i < courseList.size(); i++){
-            // matches the course details in the list with the corresponding course index sent from controller
+            // matches the course details in the list with the corresponding course index sent from the controller
             if(courseList.get(i).getCourseIndex() == index) {
                 System.out.println("Enter Course ID: ");
                 String courseId = scanner.nextLine();

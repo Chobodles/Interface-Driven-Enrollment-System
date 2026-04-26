@@ -43,6 +43,11 @@ public class Program {
         this.programName = programName;
     }
 
+    public List<Section> display(){
+        System.out.printf("Index: [%d] | Program ID: %s | Program: %s %n", programIndex, programId, programName);
+        return sectionList.stream().toList();
+    }
+
     @Override
     public String toString() {
         return "Program{" +

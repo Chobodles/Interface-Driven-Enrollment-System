@@ -35,6 +35,10 @@ public class Section {
         this.yearLevel = yearLevel;
     }
 
+    public void display(){
+        System.out.printf("Index: [%d] | Section: %s | Year: %d %n", sectionIndex, sectionName, yearLevel);
+    }
+
     @Override
     public String toString() {
         return "Section{" +
