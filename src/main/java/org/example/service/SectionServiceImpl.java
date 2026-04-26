@@ -3,11 +3,12 @@ package org.example.service;
 import org.example.model.Section;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class SectionServiceImpl implements ISectionService{
     private final Scanner scanner = new Scanner(System.in);
-    private final ArrayList<Section> sectionList = new ArrayList<>();
+    private final List<Section> sectionList = new ArrayList<>();
 
     public void addSection(Section section){
         sectionList.add(section);
@@ -22,10 +23,10 @@ public class SectionServiceImpl implements ISectionService{
     public void updateSection(int index){
         for (int i = 0; i < sectionList.size(); i++){
             if(sectionList.get(i).getSectionIndex() == index) {
-                System.out.println("Enter Course ID: ");
+                System.out.println("Enter Section Name: ");
                 String sectionName= scanner.nextLine();
 
-                System.out.println("Enter Course Name: ");
+                System.out.println("Enter Year Level: ");
                 int yearlevel = Integer.parseInt(scanner.nextLine());
 
                 sectionList.set(i, new Section(index, sectionName, yearlevel));
