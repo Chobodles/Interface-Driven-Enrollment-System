@@ -3,13 +3,14 @@ package org.example.service;
 import org.example.model.Student;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class StudentServiceImpl implements IStudentService{
     private final Scanner scanner = new Scanner(System.in);
     //holds all student objects accessible via index
     //if to add a student to section place index
-    private final ArrayList<Student> studentList = new ArrayList<>();
+    private final List<Student> studentList = new ArrayList<>();
 
     public void addStudent(Student student){
         studentList.add(student);

@@ -16,13 +16,13 @@ public class Instructor extends Person{
         System.out.println("Instructor Grades");
     }
 
-//    public List<Course> displayCourse(){
-//        return courseList.stream().toList();
-//    }
-
     public List<Course> display(){
         System.out.printf("Index: [%d] | Instructor ID: %s | Instructor Name: %s %n", super.getIndex(), super.getId(), super.getName());
         return courseList.stream().toList();
+    }
+
+    public List<Course> getCourseList() {
+        return courseList;
     }
 
     @Override
