@@ -5,6 +5,6 @@ import org.example.model.Course;
 public interface ICourseService {
     void addCourse(Course course);
     void displayAllCourse();
-    void updateCourse(Course course);
-    void removeCourse(Course course);
+    void updateCourse(int index);
+    void removeCourse(int index);
 }

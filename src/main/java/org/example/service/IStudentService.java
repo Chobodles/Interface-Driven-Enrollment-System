@@ -6,5 +6,5 @@ public interface IStudentService {
     void addStudent(Student student);
     void displayAllStudent();
     void updateStudent(int index);
-    void removeStudent(Student student);
+    void removeStudent(int index);
 }

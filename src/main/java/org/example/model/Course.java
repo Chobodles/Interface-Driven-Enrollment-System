@@ -6,7 +6,8 @@ public class Course {
     private String courseName;
     private String program;
 
-    public Course(String courseId, String courseName, String program) {
+    public Course(int courseIndex, String courseId, String courseName, String program) {
+        this.courseIndex = courseIndex;
         this.courseId = courseId;
         this.courseName = courseName;
         this.program = program;
