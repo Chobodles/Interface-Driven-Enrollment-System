@@ -4,9 +4,9 @@ public class Course {
     private int courseIndex;
     private String courseId;
     private String courseName;
-    private String program;
+    private Program program;
 
-    public Course(int courseIndex, String courseId, String courseName, String program) {
+    public Course(int courseIndex, String courseId, String courseName, Program program) {
         this.courseIndex = courseIndex;
         this.courseId = courseId;
         this.courseName = courseName;
@@ -25,36 +25,30 @@ public class Course {
         return courseId;
     }
 
-
-    public String getCourseName(){
-        return courseName;
-    }
-
-
-    public String getProgram(){
-        return program;
-    }
-
-
-    public void setCourseId(String courseId){
+    public void setCourseId(String courseId) {
         this.courseId = courseId;
     }
 
+    public String getCourseName() {
+        return courseName;
+    }
 
     public void setCourseName(String courseName) {
         this.courseName = courseName;
     }
 
+    public Program getProgram() {
+        return program;
+    }
 
-    public void setProgram(String program) {
+    public void setProgram(Program program) {
         this.program = program;
     }
 
-
-    public void display(){
+    public void display() {
         System.out.println("Course ID: " + getCourseId());
         System.out.println("Course Name: " + getCourseName());
-        System.out.println("Program: " + getProgram());
+        System.out.println("Program: " + program.getProgramName());
         System.out.println();
     }
 
@@ -64,8 +58,7 @@ public class Course {
                 "courseIndex=" + courseIndex +
                 ", courseId='" + courseId + '\'' +
                 ", courseName='" + courseName + '\'' +
-                ", program='" + program + '\'' +
+                ", program=" + program.getProgramName() +
                 '}';
     }
 }
-
