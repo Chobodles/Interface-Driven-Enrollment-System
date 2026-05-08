@@ -1,5 +1,6 @@
 package org.example.service;
 
+import org.example.exception.LoadFullException;
 import org.example.model.Course;
 import org.example.model.Instructor;
 import org.example.model.Loading;
@@ -10,6 +11,6 @@ public interface ILoadingService {
     void displayAllLoading();
     void updateLoading(int index, Instructor instructor, Course course);
     void removeLoading(int index);
-    void enrollStudent(int loadingIndex, Student student);
+    void enrollStudent(int loadingIndex, Student student) throws LoadFullException;
     void removeStudent(int loadingIndex, int studentIndex);
 }
