@@ -1,16 +1,20 @@
 package org.example.model;
 
+import java.util.List;
+
 public class Section {
     private int sectionIndex;
     private String sectionName;
     private int yearLevel;
+    private List<Loading> loadingList;
 
-
-    public Section (int sectionIndex, String sectionName, int yearLevel){
+    public Section(int sectionIndex, String sectionName, int yearLevel, List<Loading> loadingList) {
         this.sectionIndex = sectionIndex;
         this.sectionName = sectionName;
         this.yearLevel = yearLevel;
+        this.loadingList = loadingList;
     }
+
     public int getSectionIndex() {
         return sectionIndex;
     }
@@ -35,8 +39,17 @@ public class Section {
         this.yearLevel = yearLevel;
     }
 
-    public void display(){
+    public List<Loading> getLoadingList() {
+        return loadingList;
+    }
+
+    public void setLoadingList(List<Loading> loadingList) {
+        this.loadingList = loadingList;
+    }
+
+    public List<Loading> display() {
         System.out.printf("Index: [%d] | Section: %s | Year: %d %n", sectionIndex, sectionName, yearLevel);
+        return loadingList.stream().toList();
     }
 
     @Override
@@ -45,6 +58,7 @@ public class Section {
                 "sectionIndex=" + sectionIndex +
                 ", sectionName='" + sectionName + '\'' +
                 ", yearLevel=" + yearLevel +
+                ", loadingList=" + loadingList +
                 '}';
     }
 }
