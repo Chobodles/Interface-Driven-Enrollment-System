@@ -1,5 +1,6 @@
 package org.example.controller;
 
+import org.example.exception.LoadFullException;
 import org.example.model.*;
 import org.example.service.*;
 
@@ -161,6 +162,42 @@ public class CampusRegistrarController {
     public void removeSection(int index) {
         sectionService.removeSection(index);
         System.out.println("Section removed at index: " + index);
+    }
+
+    //loading
+
+    public void addLoading(Loading loading) {
+        loadingService.addLoading(loading);
+        System.out.println("Loading added for course: " + loading.getCourse().getCourseName());
+    }
+
+    public void displayAllLoadings() {
+        System.out.println("=== All Loadings ===");
+        loadingService.displayAllLoading();
+    }
+
+    public void updateLoading(int index, Instructor instructor, Course course) {
+        loadingService.updateLoading(index, instructor, course);
+        System.out.println("Loading updated at index: " + index);
+    }
+
+    public void removeLoading(int index) {
+        loadingService.removeLoading(index);
+        System.out.println("Loading removed at index: " + index);
+    }
+
+    public void enrollStudentToLoading(int loadingIndex, Student student){
+        try {
+            loadingService.enrollStudent(loadingIndex, student);
+            System.out.println("Student " + student.getName() + " enrolled to loading index: " + loadingIndex);
+        } catch (LoadFullException e) {
+            System.out.println("Enrollment Error: " + e.getMessage());
+        }
+    }
+
+    public void removeStudentFromLoading(int loadingIndex, int studentIndex) {
+        loadingService.removeStudent(loadingIndex, studentIndex);
+        System.out.println("Student removed from loading index: " + loadingIndex);
     }
 
 }
