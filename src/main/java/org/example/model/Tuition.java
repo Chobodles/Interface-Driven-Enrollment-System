@@ -7,7 +7,7 @@ public class Tuition {
     private boolean isFullyPaid;
 
     public Tuition() {
-        this.amountTotalPaid = 0;
+        this.totalAmountPaid = 0;
         this.isFullyPaid = false;
     }
 
