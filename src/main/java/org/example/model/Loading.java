@@ -8,6 +8,13 @@ public class Loading {
     private Course course;
     private List<Student> studentList;
 
+    public Loading(int loadingIndex, Instructor instructor, Course course, List<Student> studentList) {
+        this.loadingIndex = loadingIndex;
+        this.instructor = instructor;
+        this.course = course;
+        this.studentList = studentList;
+    }
+
     public int getLoadingIndex() {
         return loadingIndex;
     }
@@ -50,7 +57,6 @@ public class Loading {
             student.display();
         }
     }
-
 
     @Override
     public String toString() {
