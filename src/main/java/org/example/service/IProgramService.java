@@ -5,6 +5,6 @@ import org.example.model.Program;
 public interface IProgramService {
     void addProgram(Program program);
     void displayAllProgram();
-    void updateProgram(Program program);
-    void removeProgram(Program program);
+    void updateProgram(int index, String programId, String programName);
+    void removeProgram(int index);
 }
