@@ -5,10 +5,8 @@ import org.example.model.Section;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class ProgramServiceImpl implements IProgramService {
-    private final Scanner scanner = new Scanner(System.in);
     private final List<Program> programList = new ArrayList<>();
 
     public void addProgram(Program program) {
@@ -24,19 +22,14 @@ public class ProgramServiceImpl implements IProgramService {
         }
     }
 
-    public void updateProgram(Program program) {
+    public void updateProgram(int index, String programId, String programName) {
         for (int i = 0; i < programList.size(); i++) {
-            if (programList.get(i).getProgramIndex() == program.getProgramIndex()) {
-                System.out.println("Enter Program ID: ");
-                String programId = scanner.nextLine();
-
-                System.out.println("Enter Program Name: ");
-                String programName = scanner.nextLine();
-
+            if (programList.get(i).getProgramIndex() == index) {
                 programList.set(i, new Program(
-                        program.getProgramIndex(),
+                        index,
                         programId,
                         programName,
+                        programList.get(i).getCourseList(),
                         programList.get(i).getSectionList()
                 ));
                 break;
@@ -44,9 +37,9 @@ public class ProgramServiceImpl implements IProgramService {
         }
     }
 
-    public void removeProgram(Program program) {
+    public void removeProgram(int index) {
         for (int i = 0; i < programList.size(); i++) {
-            if (programList.get(i).getProgramIndex() == program.getProgramIndex()) {
+            if (programList.get(i).getProgramIndex() == index) {
                 programList.remove(i);
                 break;
             }

@@ -6,17 +6,15 @@ public class Program {
     private int programIndex;
     private String programId;
     private String programName;
-    private final List<Section> sectionList;
+    private List<Course> courseList;
+    private List<Section> sectionList;
 
-    public Program(int programIndex, String programId, String programName, List<Section> sectionList){
+    public Program(int programIndex, String programId, String programName, List<Course> courseList, List<Section> sectionList) {
         this.programIndex = programIndex;
         this.programId = programId;
         this.programName = programName;
+        this.courseList = courseList;
         this.sectionList = sectionList;
-    }
-
-    public List<Section> getSectionList() {
-        return sectionList;
     }
 
     public int getProgramIndex() {
@@ -43,7 +41,23 @@ public class Program {
         this.programName = programName;
     }
 
-    public List<Section> display(){
+    public List<Course> getCourseList() {
+        return courseList;
+    }
+
+    public void setCourseList(List<Course> courseList) {
+        this.courseList = courseList;
+    }
+
+    public List<Section> getSectionList() {
+        return sectionList;
+    }
+
+    public void setSectionList(List<Section> sectionList) {
+        this.sectionList = sectionList;
+    }
+
+    public List<Section> display() {
         System.out.printf("Index: [%d] | Program ID: %s | Program: %s %n", programIndex, programId, programName);
         return sectionList.stream().toList();
     }
@@ -54,6 +68,8 @@ public class Program {
                 "programIndex=" + programIndex +
                 ", programId='" + programId + '\'' +
                 ", programName='" + programName + '\'' +
+                ", courseList=" + courseList +
+                ", sectionList=" + sectionList +
                 '}';
     }
 }
