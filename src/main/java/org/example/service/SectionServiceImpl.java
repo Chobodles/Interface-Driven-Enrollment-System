@@ -4,44 +4,35 @@ import org.example.model.Section;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
-public class SectionServiceImpl implements ISectionService{
-    private final Scanner scanner = new Scanner(System.in);
+public class SectionServiceImpl implements ISectionService {
     private final List<Section> sectionList = new ArrayList<>();
 
-    public void addSection(Section section){
+    public void addSection(Section section) {
         sectionList.add(section);
     }
 
-    public void displayAllSection(){
+    public void displayAllSection() {
         for (Section section : sectionList) {
-            section.display();
+            section.display().forEach(loading -> loading.display());
         }
     }
 
-    public void updateSection(int index){
-        for (int i = 0; i < sectionList.size(); i++){
-            if(sectionList.get(i).getSectionIndex() == index) {
-                System.out.println("Enter Section Name: ");
-                String sectionName= scanner.nextLine();
-
-                System.out.println("Enter Year Level: ");
-                int yearlevel = Integer.parseInt(scanner.nextLine());
-
-                sectionList.set(i, new Section(index, sectionName, yearlevel));
+    public void updateSection(int index, String sectionName, int yearLevel) {
+        for (int i = 0; i < sectionList.size(); i++) {
+            if (sectionList.get(i).getSectionIndex() == index) {
+                sectionList.set(i, new Section(index, sectionName, yearLevel, sectionList.get(i).getLoadingList()));
                 break;
             }
         }
     }
 
-    public void removeSection(int index){
-        for (int i = 0; i < sectionList.size(); i++){
-            if(sectionList.get(i).getSectionIndex() == index){
+    public void removeSection(int index) {
+        for (int i = 0; i < sectionList.size(); i++) {
+            if (sectionList.get(i).getSectionIndex() == index) {
                 sectionList.remove(i);
                 break;
             }
         }
     }
-
 }
