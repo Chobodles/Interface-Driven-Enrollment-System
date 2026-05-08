@@ -10,13 +10,6 @@ import java.util.List;
 
 public class LoadingServiceImpl implements ILoadingService {
     private final List<Loading> loadingList = new ArrayList<>();
-    private final List<Instructor> instructorList;
-    private final List<Course> courseList;
-
-    public LoadingServiceImpl(List<Instructor> instructorList, List<Course> courseList) {
-        this.instructorList = instructorList;
-        this.courseList = courseList;
-    }
 
     public void addLoading(Loading loading) {
         loadingList.add(loading);
@@ -28,35 +21,13 @@ public class LoadingServiceImpl implements ILoadingService {
         }
     }
 
-    public void updateLoading(int index, int instructorIndex, int courseIndex) {
-        Instructor newInstructor = null;
-        Course newCourse = null;
-
-        for (Instructor instructor : instructorList) {
-            if (instructor.getIndex() == instructorIndex) {
-                newInstructor = instructor;
-                break;
-            }
-        }
-
-        for (Course course : courseList) {
-            if (course.getCourseIndex() == courseIndex) {
-                newCourse = course;
-                break;
-            }
-        }
-
-        if (newInstructor == null || newCourse == null) {
-            System.out.println("Instructor or Course not found.");
-            return;
-        }
-
+    public void updateLoading(int index, Instructor instructor, Course course) {
         for (int i = 0; i < loadingList.size(); i++) {
             if (loadingList.get(i).getLoadingIndex() == index) {
                 loadingList.set(i, new Loading(
                         index,
-                        newInstructor,
-                        newCourse,
+                        instructor,
+                        course,
                         loadingList.get(i).getStudentList()
                 ));
                 break;

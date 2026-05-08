@@ -2,6 +2,7 @@ package org.example.service;
 
 import org.example.model.Department;
 import org.example.model.Program;
+import org.example.model.Section;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,10 @@ public class DepartmentServiceImpl implements IDepartmentService {
         for (Department department : departmentList) {
             List<Program> programs = department.display();
             for (Program program : programs) {
-                program.display();
+                List<Section> sections = program.display();
+                for (Section section : sections) {
+                    section.display().forEach(loading -> loading.display());
+                }
             }
         }
     }
