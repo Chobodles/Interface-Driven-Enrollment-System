@@ -57,6 +57,9 @@ public class Loading {
             student.display();
         }
     }
+    public int getMaxCapacity() {
+        return 30;
+    }
 
     @Override
     public String toString() {
@@ -67,4 +70,6 @@ public class Loading {
                 ", studentList=" + studentList +
                 '}';
     }
+
+
 }

@@ -1,5 +1,7 @@
 package org.example.service;
 
+
+import org.example.exception.LoadFullException;
 import org.example.model.Course;
 import org.example.model.Instructor;
 import org.example.model.Loading;
@@ -44,9 +46,13 @@ public class LoadingServiceImpl implements ILoadingService {
         }
     }
 
-    public void enrollStudent(int loadingIndex, Student student) {
+    public void enrollStudent(int loadingIndex, Student student) throws LoadFullException{
         for (Loading loading : loadingList) {
             if (loading.getLoadingIndex() == loadingIndex) {
+                if (loading.getStudentList().size() >= loading.getMaxCapacity()) {
+                    throw new LoadFullException("Enrollment failed: Section with " + loading.getCourse().getCourseName() + " is currently full.");
+                }
+
                 loading.getStudentList().add(student);
                 break;
             }
