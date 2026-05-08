@@ -40,6 +40,18 @@ public class Loading {
         this.studentList = studentList;
     }
 
+    public void display() {
+        System.out.printf("Index: [%d] | Instructor: %s | Course: %s | Enrolled Students: %d %n",
+                loadingIndex,
+                instructor.getName(),
+                course.getCourseName(),
+                studentList.size());
+        for (Student student : studentList) {
+            student.display();
+        }
+    }
+
+
     @Override
     public String toString() {
         return "Loading{" +
