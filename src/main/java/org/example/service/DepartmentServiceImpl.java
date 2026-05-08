@@ -5,10 +5,8 @@ import org.example.model.Program;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class DepartmentServiceImpl implements IDepartmentService {
-    private final Scanner scanner = new Scanner(System.in);
     private final List<Department> departmentList = new ArrayList<>();
 
     public void addDepartment(Department department) {
@@ -24,17 +22,11 @@ public class DepartmentServiceImpl implements IDepartmentService {
         }
     }
 
-    public void updateDepartment(Department department) {
+    public void updateDepartment(int index, String departmentId, String departmentName) {
         for (int i = 0; i < departmentList.size(); i++) {
-            if (departmentList.get(i).getDepartmentIndex() == department.getDepartmentIndex()) {
-                System.out.println("Enter Department ID: ");
-                String departmentId = scanner.nextLine();
-
-                System.out.println("Enter Department Name: ");
-                String departmentName = scanner.nextLine();
-
+            if (departmentList.get(i).getDepartmentIndex() == index) {
                 departmentList.set(i, new Department(
-                        department.getDepartmentIndex(),
+                        index,
                         departmentId,
                         departmentName,
                         departmentList.get(i).getInstructorList(),
@@ -45,9 +37,9 @@ public class DepartmentServiceImpl implements IDepartmentService {
         }
     }
 
-    public void removeDepartment(Department department) {
+    public void removeDepartment(int index) {
         for (int i = 0; i < departmentList.size(); i++) {
-            if (departmentList.get(i).getDepartmentIndex() == department.getDepartmentIndex()) {
+            if (departmentList.get(i).getDepartmentIndex() == index) {
                 departmentList.remove(i);
                 break;
             }
