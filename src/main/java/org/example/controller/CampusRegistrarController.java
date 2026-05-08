@@ -53,4 +53,26 @@ public class CampusRegistrarController {
         System.out.println("Student removed at index: " + index);
     }
 
+    //instructor
+
+    public void addInstructor(int index, String id, String name) {
+        instructorService.addInstructor(new Instructor(index, id, name));
+        System.out.println("Instructor added: " + name);
+    }
+
+    public void displayAllInstructors() {
+        System.out.println("=== All Instructors ===");
+        instructorService.displayAllInstructor();
+    }
+
+    public void updateInstructor(int index, String id, String name) {
+        instructorService.updateInstructor(index, id, name);
+        System.out.println("Instructor updated at index: " + index);
+    }
+
+    public void removeInstructor(int index) {
+        instructorService.removeInstructor(index);
+        System.out.println("Instructor removed at index: " + index);
+    }
+
 }
