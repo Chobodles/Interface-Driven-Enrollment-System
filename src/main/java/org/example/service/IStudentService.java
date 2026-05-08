@@ -5,6 +5,6 @@ import org.example.model.Student;
 public interface IStudentService {
     void addStudent(Student student);
     void displayAllStudent();
-    void updateStudent(int index);
+    void updateStudent(int index, String id, String name);
     void removeStudent(int index);
 }
