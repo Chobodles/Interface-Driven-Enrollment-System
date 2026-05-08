@@ -3,30 +3,28 @@ package org.example.service;
 import org.example.model.Tuition;
 
 public class TuitionServiceImpl implements ITuitionService{
-    public void calculateTuitionFee(Tuition tuition, int units, double discountRate) {
-        double total = (PRICE_PER_UNIT * units);
+    public double calculateTuitionFee(Tuition tuition, int units, double discountRate) {
+        double total = PRICE_PER_UNIT * units;
         double discount = total * discountRate;
         double finalFee = total - discount;
 
         tuition.setTotal(finalFee);
-        tuition.setRemainingBalance(finalFee);
-        tuition.setFullyPaid(finalFee <= 0);
+        tuition.setRemainingBalance(finalFee - tuition.getTotalAmountPaid());
+        tuition.setFullyPaid(tuition.getRemainingBalance() <= 0);
+
+        return finalFee;
     }
 
     public void processPayment(Tuition tuition, double amount) {
-        // add validation here for not accepting negative numbers and if already fully paid
+        // add validation here for not accepting negative numbers and if already fully paid custom exception
 
         double newAmountPaid = tuition.getTotalAmountPaid() + amount;
-        tuition.setTotalAmountPaid(newAmountPaid);
+        tuition.setTotalAmountPaid(tuition.getTotal() - newAmountPaid);
 
-        double newBalance = tuition.getTotal() - newAmountPaid;
+        tuition.setFullyPaid(tuition.getRemainingBalance() <= 0);
 
-        if (newBalance <= 0) {
-            tuition.setRemainingBalance(0);
-            tuition.setFullyPaid(true);
-        } else {
-            tuition.setRemainingBalance(newBalance);
-            tuition.setFullyPaid(false);
-        }
+        System.out.printf("Payment of %.2f accepted. Your Remaining balance: %.2f%n",
+                amount, tuition.getRemainingBalance());
+
     }
 }
