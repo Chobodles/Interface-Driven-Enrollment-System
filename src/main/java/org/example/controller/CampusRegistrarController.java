@@ -97,4 +97,26 @@ public class CampusRegistrarController {
         System.out.println("Course removed at index: " + index);
     }
 
+    //department
+
+    public void addDepartment(Department department) {
+        departmentService.addDepartment(department);
+        System.out.println("Department added: " + department.getDepartmentName());
+    }
+
+    public void displayAllDepartments() {
+        System.out.println("=== All Departments ===");
+        departmentService.displayAllDepartment();
+    }
+
+    public void updateDepartment(int index, String departmentId, String departmentName) {
+        departmentService.updateDepartment(index, departmentId, departmentName);
+        System.out.println("Department updated at index: " + index);
+    }
+
+    public void removeDepartment(int index) {
+        departmentService.removeDepartment(index);
+        System.out.println("Department removed at index: " + index);
+    }
+
 }
