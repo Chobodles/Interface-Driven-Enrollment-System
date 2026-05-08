@@ -6,6 +6,11 @@ public class Tuition {
     private double remainingBalance;
     private boolean isFullyPaid;
 
+    public Tuition() {
+        this.amountTotalPaid = 0;
+        this.isFullyPaid = false;
+    }
+
     public double getTotal() {
         return total;
     }
