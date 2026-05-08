@@ -15,17 +15,14 @@ public class InstructorServiceImpl implements IInstructorService {
 
     public void displayAllInstructor() {
         for (Instructor instructor : instructorList) {
-            List<Course> courses = instructor.display();
-            for (Course course : courses) {
-                course.display();
-            }
+            instructor.display();
         }
     }
 
     public void updateInstructor(int index, String id, String name) {
         for (int i = 0; i < instructorList.size(); i++) {
             if (instructorList.get(i).getIndex() == index) {
-                instructorList.set(i, new Instructor(index, id, name, instructorList.get(i).getCourseList()));
+                instructorList.set(i, new Instructor(index, id, name));
                 break;
             }
         }
