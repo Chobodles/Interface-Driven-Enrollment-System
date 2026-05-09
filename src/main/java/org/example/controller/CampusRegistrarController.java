@@ -46,25 +46,6 @@ public class CampusRegistrarController {
 
     //course
 
-    public void addCourse(int index, String courseId, String courseName, Program program) {
-        courseService.addCourse(new Course(index, courseId, courseName, program));
-        System.out.println("Course added: " + courseName);
-    }
-
-    public void displayAllCourses() {
-        System.out.println("=== All Courses ===");
-        courseService.displayAllCourse();
-    }
-
-    public void updateCourse(int index, String courseId, String courseName, Program program) {
-        courseService.updateCourse(index, courseId, courseName, program);
-        System.out.println("Course updated at index: " + index);
-    }
-
-    public void removeCourse(int index) {
-        courseService.removeCourse(index);
-        System.out.println("Course removed at index: " + index);
-    }
 
     //department
 
