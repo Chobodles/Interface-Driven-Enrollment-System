@@ -2,12 +2,13 @@ package org.example.controller;
 
 import org.example.model.Student;
 import org.example.service.IStudentService;
+import org.example.service.StudentServiceImpl;
 
 public class StudentServiceController {
     private final IStudentService studentService;
 
-    public StudentServiceController(IStudentService studentService) {
-        this.studentService = studentService;
+    public StudentServiceController() {
+        this.studentService = new StudentServiceImpl();
     }
 
     public void addStudent(int index, String id, String name) {
