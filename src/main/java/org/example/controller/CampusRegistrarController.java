@@ -20,16 +20,16 @@ public class CampusRegistrarController {
     private static final int UNITS_PER_LOAD = 3;
 
     public CampusRegistrarController(
-            IStudentService studentService,
-            IInstructorService instructorService,
-            ICourseService courseService,
-            IProgramService programService,
-            ISectionService sectionService,
-            ILoadingService loadingService,
-            IDepartmentService departmentService,
-            ITuitionService tuitionService
+//            IStudentService studentService,
+//            IInstructorService instructorService,
+//            ICourseService courseService,
+//            IProgramService programService,
+//            ISectionService sectionService,
+//            ILoadingService loadingService,
+//            IDepartmentService departmentService,
+//            ITuitionService tuitionService
     ) {
-        this.studentService = studentService;
+        this.studentService = new StudentServiceImpl();
         this.instructorService = instructorService;
         this.courseService = courseService;
         this.programService = programService;
@@ -41,25 +41,6 @@ public class CampusRegistrarController {
 
     //student
 
-    public void addStudent(int index, String id, String name) {
-        studentService.addStudent(new Student(index, id, name));
-        System.out.println("Student added: " + name);
-    }
-
-    public void displayAllStudents() {
-        System.out.println("=== All Students ===");
-        studentService.displayAllStudent();
-    }
-
-    public void updateStudent(int index, String id, String name) {
-        studentService.updateStudent(index, id, name);
-        System.out.println("Student updated at index: " + index);
-    }
-
-    public void removeStudent(int index) {
-        studentService.removeStudent(index);
-        System.out.println("Student removed at index: " + index);
-    }
 
     //instructor
 
