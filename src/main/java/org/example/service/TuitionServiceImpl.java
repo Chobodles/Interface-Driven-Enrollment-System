@@ -19,7 +19,8 @@ public class TuitionServiceImpl implements ITuitionService{
         // add validation here for not accepting negative numbers and if already fully paid custom exception
 
         double newAmountPaid = tuition.getTotalAmountPaid() + amount;
-        tuition.setTotalAmountPaid(tuition.getTotal() - newAmountPaid);
+        tuition.setTotalAmountPaid(newAmountPaid);
+        tuition.setRemainingBalance(tuition.getTotal() - newAmountPaid);
 
         tuition.setFullyPaid(tuition.getRemainingBalance() <= 0);
 
